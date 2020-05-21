@@ -13,6 +13,8 @@ echo "loading config files"
 git clone https://github.com/ducl1296/Debian-minimal-install-wmi3.git
 sudo apt -t buster-backports install polybar -y
 cd Desbian-minimal-install-wmi3
+sudo -A mkdir /usr/share/slim/themes
+sudo -A cp -r config/slim/darky_pink /usr/share/slim/themes/
 mkdir /home/$user/.local/share/fonts
 cp fonts/* /home/$user/.local/share/fonts
 echo "fonts copiadas"
