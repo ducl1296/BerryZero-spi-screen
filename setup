@@ -14,5 +14,8 @@ cp wallpapers/* ~/.config/wallpapers/
 echo "wallpapers copiados"
 cp scripts/* ~/.config/scripts/
 echo "scripts copiados"
-
-
+cp -r config/* ~/.config/
+echo "configuraciones copiadas"
+echo "sys will reboot"
+sleep 5
+systemctl reboot
