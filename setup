@@ -15,6 +15,7 @@ sudo apt -t buster-backports install polybar -y
 cd Desbian-minimal-install-wmi3
 sudo -A mkdir /usr/share/slim/themes
 sudo -A cp -r config/slim/darky_pink /usr/share/slim/themes/
+sudo -A cp config/slim/slim.conf /etc/slim.conf
 mkdir /home/$user/.local/share/fonts
 cp fonts/* /home/$user/.local/share/fonts
 echo "fonts copiadas"
@@ -34,6 +35,11 @@ sudo -A touch /var/run/mpd/mpd.pid
 sudo -A touch /var/log/mpd/mpd.log
 sudo -A touch /var/log/mpd/mpd.error
 sudo -A cp config/mpd/mpd.conf /etc/mpd.conf
+####################################INSTALL PLYMOUTH#########################################################
+sudo -A echo "GRUB_GFXMODE=1980x1080" >> /etc/default/grub
+sudo -A echo "GRUB_CMDLINE_LINUX_DEFAULT=/"quiet splash/"" >> /etc/default/grub
+sudo -A update-grub2
+
 #############################################################################################################
 sleep 5
 systemctl reboot
