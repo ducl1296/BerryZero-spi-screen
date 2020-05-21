@@ -1,21 +1,32 @@
 #!/bin/bash
-apt-get update  && apt-get upgrade
-apt install xorg lightdm i3 polybar terminator -y
+echo "Please insert sudo passwd"
+read passwd
+user=$USER
+sudo -S $passwd apt-get update
+sudo -S $passwd apt-get upgrade
+sudo -S $passwd apt install xorg lightdm i3 terminator -y
 echo "first step DOOIT!!!!"
-apt install feh compton unzip xpdf git ccrypt nemo python3-pip ffmpeg -y
+sudo -S $passwd apt install feh compton unzip xpdf git ccrypt nemo python3-pip ffmpeg -y
+sudo -S $passwd apt install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev -y
 pip3 install youtube-dl
 echo "2do step ready"
 echo "loading config files"
 git clone https://github.com/ducl1296/Debian-minimal-install-wmi3.git
+git clone https://github.com/jaagr/polybar.git
 cd Desbian-minimal-install-wmi3
-cp fonts/* ~/.local/share/fonts
+mkdir /home/$user/.local/share/fonts
+cp fonts/* /home/$user/.local/share/fonts
 echo "fonts copiadas"
-cp wallpapers/* ~/.config/wallpapers/
+mkdir /home/$user/.config/wallpapers
+cp wallpapers/* /home/$user/.config/wallpapers/
 echo "wallpapers copiados"
-cp scripts/* ~/.config/scripts/
+mkdir /home/$user/.config/scripts
+cp scripts/* /home/$user/.config/scripts/
 echo "scripts copiados"
-cp -r config/* ~/.config/
+cp -r config/* /home/$user/.config/
 echo "configuraciones copiadas"
-echo "sys will reboot"
+cd ..
+echo "i will install polybar"
 sleep 5
-systemctl reboot
+cd polybar && ./build.sh
+#systemctl reboot
