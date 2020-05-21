@@ -1,8 +1,8 @@
 #!/bin/bash
 apt-get update  && apt-get upgrade
-apt install xorg lightdm i3 polybar terminator
+apt install xorg lightdm i3 polybar terminator -y
 echo "first step DOOIT!!!!"
-apt install feh compton unzip xpdf git ccrypt nemo python3-pip ffmpeg 
+apt install feh compton unzip xpdf git ccrypt nemo python3-pip ffmpeg -y
 pip3 install youtube-dl
 echo "2do step ready"
 echo "loading config files"
