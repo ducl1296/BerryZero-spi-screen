@@ -8,4 +8,5 @@ echo "2do step ready"
 echo "loading config files"
 git clone https://github.com/ducl1296/Debian-minimal-install-wmi3.git
 cd Desbian-minimal-install-wmi3
-cp ~/.local/share/fonts
+cp /fonts/* ~/.local/share/fonts
+
