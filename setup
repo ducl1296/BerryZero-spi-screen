@@ -11,7 +11,7 @@ sudo -A pip3 install youtube-dl
 echo "2do step ready"
 echo "loading config files"
 git clone https://github.com/ducl1296/Debian-minimal-install-wmi3.git
-sudo apt -t buster-backports install polybar
+sudo apt -t buster-backports install polybar -y
 cd Desbian-minimal-install-wmi3
 mkdir /home/$user/.local/share/fonts
 cp fonts/* /home/$user/.local/share/fonts
