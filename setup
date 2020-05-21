@@ -3,7 +3,7 @@ user=$USER
 echo "deb http://ftp.debian.org/debian buster-backports main" | sudo -A tee /etc/apt/sources.list.d/backports.list
 sudo -A apt-get update
 sudo -A apt-get upgrade
-sudo -A apt install xorg lightdm i3 terminator -y
+sudo -A apt install xorg slim i3 terminator -y
 echo "first step DOOIT!!!!"
 sudo -A apt install feh compton unzip xpdf git ccrypt nemo python3-pip ffmpeg -y
 sudo -A apt install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev -y
