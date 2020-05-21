@@ -1,5 +1,6 @@
 #!/bin/bash
 user=$USER
+echo "deb http://ftp.debian.org/debian buster-backports main" | sudo -A tee /etc/apt/sources.list.d/backports.list
 sudo -A apt-get update
 sudo -A apt-get upgrade
 sudo -A apt install xorg lightdm i3 terminator -y
@@ -10,7 +11,7 @@ sudo -A pip3 install youtube-dl
 echo "2do step ready"
 echo "loading config files"
 git clone https://github.com/ducl1296/Debian-minimal-install-wmi3.git
-git clone https://github.com/jaagr/polybar.git
+sudo apt -t buster-backports install polybar
 cd Desbian-minimal-install-wmi3
 mkdir /home/$user/.local/share/fonts
 cp fonts/* /home/$user/.local/share/fonts
@@ -23,10 +24,5 @@ cp scripts/* /home/$user/.config/scripts/
 echo "scripts copiados"
 cp -r config/* /home/$user/.config/
 echo "configuraciones copiadas"
-cd ..
-pwd
-ls
-echo "i will install polybar"
 sleep 5
-cd polybar && ./build.sh
-#systemctl reboot
+systemctl reboot
