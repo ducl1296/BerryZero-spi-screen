@@ -34,6 +34,7 @@ sudo -A touch /var/lib/mpd/mpdstate
 sudo -A touch /var/run/mpd/mpd.pid
 sudo -A touch /var/log/mpd/mpd.log
 sudo -A touch /var/log/mpd/mpd.error
+sudo -A rm /etc/mpd.conf
 sudo -A cp config/mpd/mpd.conf /etc/mpd.conf
 ####################################INSTALL PLYMOUTH#########################################################
 #sudo -A echo "GRUB_GFXMODE=1980x1080" >> /etc/default/grub
