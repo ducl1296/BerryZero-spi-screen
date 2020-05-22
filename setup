@@ -45,7 +45,7 @@ sudo -A cp -r config/plymouth/theme/* /usr/share/plymouth/themes/circle/
 sudo -A plymouth-set-default-theme -R circle
 #############################################################################################################
 sudo -A chmod +x /home/"$USER"/.config/scripts/ytd
-/etc/fonts/conf.d/70-no-bitmaps.conf
+sudo -A rm /etc/fonts/conf.d/70-no-bitmaps.conf
 echo "aqui vamos"
 sleep 5
 systemctl reboot
