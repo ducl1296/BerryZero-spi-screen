@@ -39,7 +39,10 @@ sudo -A cp config/mpd/mpd.conf /etc/mpd.conf
 sudo -A echo "GRUB_GFXMODE=1980x1080" >> /etc/default/grub
 sudo -A echo "GRUB_CMDLINE_LINUX_DEFAULT=/"quiet splash/"" >> /etc/default/grub
 sudo -A update-grub2
-
+sudo -A /usr/share/plymouth/themes/circle
+sudo -A cp -r config/plymouth/theme/* /usr/share/plymouth/themes/circle/
+sudo -A plymouth-set-default-theme -R circle
 #############################################################################################################
+echo "aqui vamos"
 sleep 5
 systemctl reboot
