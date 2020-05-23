@@ -3,12 +3,12 @@ echo "deb http://ftp.debian.org/debian buster-backports main" | sudo -A tee /etc
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt install xorg slim i3 terminator mousepad plymouth -y
-echo "first step DOOIT!!!!"
+echo -e "\e[96mfirst step DOOIT!!!!"
 sudo apt install feh compton unzip xpdf git ccrypt nemo python3-pip ffmpeg lxappearance pulseaudio pavucontrol mpd ncmpcpp -y
 sudo apt install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev -y
 sudo pip3 install youtube-dl
-echo "2do step ready"
-echo "loading config files"
+echo -e "\e[96m2do step ready"
+echo -e "\e[96mloading config files"
 git clone https://github.com/ducl1296/Debian-minimal-install-wmi3.git
 sudo apt -t buster-backports install polybar -y
 ################################Copy configs##########
@@ -18,15 +18,15 @@ sudo cp -r config/slim/darky_pink /usr/share/slim/themes/
 sudo cp config/slim/slim.conf /etc/slim.conf
 mkdir /home/"$USER"/.local/share/fonts
 cp fonts/* /home/"$USER"/.local/share/fonts
-echo "fonts copiadas"
+echo -e "\e[96mfonts copiadas"
 mkdir /home/"$USER"/.config/wallpapers
 cp wallpapers/* /home/"$USER"/.config/wallpapers/
-echo "wallpapers copiados"
+echo -e "\e[96mwallpapers copiados"
 mkdir /home/"$USER"/.config/scripts
 cp scripts/* /home/"$USER"/.config/scripts/
-echo "scripts copiados"
+echo -e "\e[96mscripts copiados"
 cp -r config/* /home/"$USER"/.config/
-echo "configuraciones copiadas"
+echo -e "\e[96mconfiguraciones copiadas"
 ####################################MPD CONFIG###############################################################
 sudo mkdir /home/"$USER"/música
 sudo touch /var/lib/mpd/db
