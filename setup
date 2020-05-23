@@ -1,51 +1,50 @@
 #!/bin/bash
-user=$USER
 echo "deb http://ftp.debian.org/debian buster-backports main" | sudo -A tee /etc/apt/sources.list.d/backports.list
-sudo -A apt-get update
-sudo -A apt-get upgrade
-sudo -A apt install xorg slim i3 terminator mousepad plymouth -y
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt install xorg slim i3 terminator mousepad plymouth -y
 echo "first step DOOIT!!!!"
-sudo -A apt install feh compton unzip xpdf git ccrypt nemo python3-pip ffmpeg lxappearance pulseaudio pavucontrol mpd ncmpcpp -y
-sudo -A apt install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev -y
-sudo -A pip3 install youtube-dl
+sudo apt install feh compton unzip xpdf git ccrypt nemo python3-pip ffmpeg lxappearance pulseaudio pavucontrol mpd ncmpcpp -y
+sudo apt install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev -y
+sudo pip3 install youtube-dl
 echo "2do step ready"
 echo "loading config files"
 git clone https://github.com/ducl1296/Debian-minimal-install-wmi3.git
 sudo apt -t buster-backports install polybar -y
 cd Debian-minimal-install-wmi3
-sudo -A mkdir /usr/share/slim/themes
-sudo -A cp -r config/slim/darky_pink /usr/share/slim/themes/
-sudo -A cp config/slim/slim.conf /etc/slim.conf
-mkdir /home/$user/.local/share/fonts
-cp fonts/* /home/$user/.local/share/fonts
+sudo mkdir /usr/share/slim/themes
+sudo cp -r config/slim/darky_pink /usr/share/slim/themes/
+sudo cp config/slim/slim.conf /etc/slim.conf
+mkdir /home/"$USER"/.local/share/fonts
+cp fonts/* /home/"$USER"/.local/share/fonts
 echo "fonts copiadas"
-mkdir /home/$user/.config/wallpapers
-cp wallpapers/* /home/$user/.config/wallpapers/
+mkdir /home/"$USER"/.config/wallpapers
+cp wallpapers/* /home/"$USER"/.config/wallpapers/
 echo "wallpapers copiados"
-mkdir /home/$user/.config/scripts
-cp scripts/* /home/$user/.config/scripts/
+mkdir /home/"$USER"/.config/scripts
+cp scripts/* /home/"$USER"/.config/scripts/
 echo "scripts copiados"
-cp -r config/* /home/$user/.config/
+cp -r config/* /home/"$USER"/.config/
 echo "configuraciones copiadas"
 ####################################MPD CONFIG###############################################################
-sudo -A mkdir /home/"$USER"/música
-sudo -A touch /var/lib/mpd/db
-sudo -A touch /var/lib/mpd/mpdstate
-sudo -A touch /var/run/mpd/mpd.pid
-sudo -A touch /var/log/mpd/mpd.log
-sudo -A touch /var/log/mpd/mpd.error
-#sudo -A rm /etc/mpd.conf
-#sudo -A cp config/mpd/mpd.conf /etc/mpd.conf
+sudo mkdir /home/"$USER"/música
+sudo touch /var/lib/mpd/db
+sudo touch /var/lib/mpd/mpdstate
+sudo touch /var/run/mpd/mpd.pid
+sudo touch /var/log/mpd/mpd.log
+sudo touch /var/log/mpd/mpd.error
+#sudo rm /etc/mpd.conf
+#sudo cp config/mpd/mpd.conf /etc/mpd.conf
 ####################################INSTALL PLYMOUTH#########################################################
 #sudo -A echo "GRUB_GFXMODE=1980x1080" >> /etc/default/grub
 #sudo -A echo "GRUB_CMDLINE_LINUX_DEFAULT=/"quiet splash/"" >> /etc/default/grub
-sudo -A update-grub2
-sudo -A mkdir /usr/share/plymouth/themes/circle
-sudo -A cp -r config/plymouth/theme/* /usr/share/plymouth/themes/circle/
-sudo -A plymouth-set-default-theme -R circle
-#############################################################################################################
-sudo -A chmod +x /home/"$USER"/.config/scripts/ytd
-sudo -A rm /etc/fonts/conf.d/70-no-bitmaps.conf
+sudo update-grub2
+sudo mkdir /usr/share/plymouth/themes/circle
+sudo cp -r config/plymouth/theme/* /usr/share/plymouth/themes/circle/
+sudo plymouth-set-default-theme -R circle
+############################################################################################################
+sudo chmod +x /home/"$USER"/.config/scripts/ytd
+sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
 echo "aqui vamos"
 sleep 5
-systemctl reboot
+#systemctl reboot
