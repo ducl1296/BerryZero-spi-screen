@@ -13,6 +13,7 @@ git clone https://github.com/ducl1296/Debian-minimal-install-wmi3.git
 sudo apt -t buster-backports install polybar -y
 ################################Copy configs##########
 cd Debian-minimal-install-wmi3
+mkdir /home/"$USER"/.config
 sudo mkdir /usr/share/slim/themes
 sudo cp -r config/slim/darky_pink /usr/share/slim/themes/
 sudo cp config/slim/slim.conf /etc/slim.conf
